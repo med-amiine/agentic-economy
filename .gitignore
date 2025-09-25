@@ -36,6 +36,10 @@ out/
 *.gif
 *.svg
 
-# Allow specific logo files
-!public/mini-logo.png
-!public/bond-credit-logo.png
+# Allow all images in public directory
+!public/*.png
+!public/*.jpg
+!public/*.jpeg
+!public/*.webp
+!public/*.gif
+!public/*.svg
