@@ -7,22 +7,51 @@ export default function Document() {
         <script
           dangerouslySetInnerHTML={{
             __html: `
-              // Fix for Chrome extension ethereum property error - Run early
+              // Immediate fix for Chrome extension ethereum property error
               (function() {
                 if (typeof window !== 'undefined') {
+                  // Store original ethereum immediately
+                  const originalEthereum = window.ethereum;
+                  
+                  // Create a safe ethereum object
+                  let ethereumValue = originalEthereum || {};
+                  
+                  // Define ethereum property as configurable from the start
                   try {
-                    // Pre-emptively define ethereum property before extensions can
-                    if (!window.ethereum) {
-                      Object.defineProperty(window, 'ethereum', {
-                        value: {},
-                        writable: true,
+                    Object.defineProperty(window, 'ethereum', {
+                      get: function() {
+                        return ethereumValue;
+                      },
+                      set: function(value) {
+                        ethereumValue = value;
+                      },
+                      configurable: true,
+                      writable: true,
+                      enumerable: true
+                    });
+                  } catch (e) {
+                    // If that fails, try to delete and recreate
+                    try {
+                      delete window.ethereum;
+                      window.ethereum = ethereumValue;
+                    } catch (e2) {
+                      // Last resort: just assign directly
+                      window.ethereum = ethereumValue;
+                    }
+                  }
+                  
+                  // Override Object.defineProperty to make ethereum always configurable
+                  const originalDefineProperty = Object.defineProperty;
+                  Object.defineProperty = function(obj, prop, descriptor) {
+                    if (obj === window && prop === 'ethereum') {
+                      return originalDefineProperty.call(this, obj, prop, {
+                        ...descriptor,
                         configurable: true,
-                        enumerable: true
+                        writable: true
                       });
                     }
-                  } catch (e) {
-                    // Ignore errors
-                  }
+                    return originalDefineProperty.call(this, obj, prop, descriptor);
+                  };
                 }
               })();
             `,

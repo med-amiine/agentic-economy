@@ -27,7 +27,7 @@ const AgentGallery = () => {
       title: 'For Investors',
       description: 'Join the future of autonomous finance and earn competitive yields through agent-managed portfolios.',
       buttonText: 'Meet the team',
-      buttonColor: 'bg-primary-500 hover:bg-primary-600',
+      buttonColor: 'bg-primary-500 hover:text-white ',
       iconColor: 'bg-primary-500/10',
       iconBg: 'bg-primary-500',
       features: ['Competitive yields', 'Risk management', 'Transparent reporting']
@@ -37,7 +37,7 @@ const AgentGallery = () => {
       title: 'For Agents',
       description: 'Get scored, get credit, get capital. Access funding based on your proven performance and reputation.',
       buttonText: 'Apply as Agent',
-      buttonColor: 'bg-green-500 hover:bg-green-600',
+      buttonColor: 'bg-green-500 hover:bg-green-600 hover:text-white',
       iconColor: 'bg-green-500/10',
       iconBg: 'bg-green-500',
       features: ['Performance scoring', 'Credit lines', 'Capital access']
@@ -47,7 +47,7 @@ const AgentGallery = () => {
       title: 'For Allocators',
       description: 'Earn yield with shared security partners while supporting the growth of the agentic economy.',
       buttonText: 'Join Early Access',
-      buttonColor: 'bg-amber-500 hover:bg-amber-600',
+      buttonColor: 'bg-amber-500 hover:bg-amber-600 hover:text-white',
       iconColor: 'bg-amber-500/10',
       iconBg: 'bg-amber-500',
       features: ['Shared security', 'Yield opportunities', 'Early access']
@@ -62,6 +62,7 @@ const AgentGallery = () => {
         <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-blue-400/5 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary-500/3 to-blue-400/3 rounded-full blur-3xl"></div>
       </div>
+
       
       <div className="container-custom relative z-10">
         <div className="text-center space-y-8 mb-20">
@@ -109,7 +110,7 @@ const AgentGallery = () => {
                   
                   <a
                     href={`/${path.title.toLowerCase().replace(' ', '-')}`}
-                    className={`group/btn inline-flex items-center justify-center gap-2 ${path.buttonColor} text-white px-8 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 hover:shadow-xl hover:shadow-primary-500/25 hover:-translate-y-1`}
+                    className={`group/btn inline-flex items-center justify-center gap-2 ${path.buttonColor} text-white px-8 py-4 rounded-2xl font-semibold text-sm transition-all duration-300 hover:shadow-xl hover:-translate-y-1`}
                   >
                     {path.buttonText}
                     <ArrowRight className="h-5 w-5 group-hover/btn:translate-x-1 transition-transform duration-300" />

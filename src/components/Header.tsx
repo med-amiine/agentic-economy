@@ -51,8 +51,8 @@ const Header = () => {
               <Image
                 src="/bond-credit-logo.png"
                 alt="Bond Credit"
-                width={48}
-                height={48}
+                width={40}
+                height={40}
                 className={styles.logoImage}
               />
             </a>

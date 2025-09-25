@@ -18,33 +18,14 @@ const Hero = () => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const loadingTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-      // Loading percentage animation
-      useEffect(() => {
-        const animateLoading = () => {
-          if (loadingPercentage < 100) {
-            loadingTimeoutRef.current = setTimeout(() => {
-              setLoadingPercentage(prev => {
-                const increment = 1.0; // Faster increment of 1.0%
-                const newValue = prev + increment;
-                if (newValue >= 100) {
-                  // When reaching 100%, show loading text after a delay
-                  setTimeout(() => setShowLoadingText(true), 1000);
-                  return 100;
-                }
-                return newValue;
-              });
-            }, 80); // Faster loading animation
-          }
-        };
+  // Loading percentage animation - simplified for geometric animation
+  useEffect(() => {
+    // Just set loading to complete immediately for geometric animation
+    setLoadingPercentage(100);
+    setShowLoadingText(true);
+  }, []);
 
-        animateLoading();
-
-        return () => {
-          if (loadingTimeoutRef.current) clearTimeout(loadingTimeoutRef.current);
-        };
-      }, [loadingPercentage]);
-
-  // Typing and deleting animation
+  // Typing and deleting animation - independent of loading
   useEffect(() => {
     const currentWord = rollingWords[currentWordIndex];
     
@@ -59,19 +40,19 @@ const Hero = () => {
       if (currentText.length < currentWord.length) {
         timeoutRef.current = setTimeout(() => {
           setCurrentText(currentWord.substring(0, currentText.length + 1));
-        }, 180); // Different timing from loading animation
+        }, 150); // Faster typing
       } else {
         // Finished typing, wait then start deleting
         timeoutRef.current = setTimeout(() => {
           setIsDeleting(true);
-        }, 1000); // Longer wait time between words
+        }, 800); // Shorter wait time
       }
     } else {
       // Deleting animation
       if (currentText.length > 0) {
         timeoutRef.current = setTimeout(() => {
           setCurrentText(currentText.substring(0, currentText.length - 1));
-        }, 100); // Different timing from loading animation
+        }, 80); // Faster deleting
       } else {
         // Finished deleting, move to next word
         setIsDeleting(false);
@@ -89,7 +70,7 @@ const Hero = () => {
     };
   }, [currentText, currentWordIndex, isDeleting, rollingWords]);
 
-      return (
+  return (
         <section 
           className={styles.heroSection}
           style={{
@@ -104,6 +85,44 @@ const Hero = () => {
         <div className={styles.backgroundBlur1}></div>
         <div className={styles.backgroundBlur2}></div>
         <div className={styles.backgroundBlur3}></div>
+      </div>
+
+      {/* AI Agent Animation Overlay */}
+      <div className={styles.geometricOverlay}>
+        <div className={styles.geometricContainer}>
+          {/* AI Agent Shapes */}
+          <div className={styles.aiShape} data-shape="neural-node"></div>
+          <div className={styles.aiShape} data-shape="circuit"></div>
+          <div className={styles.aiShape} data-shape="data-flow"></div>
+          <div className={styles.aiShape} data-shape="neural-node"></div>
+          <div className={styles.aiShape} data-shape="circuit"></div>
+          <div className={styles.aiShape} data-shape="data-flow"></div>
+          <div className={styles.aiShape} data-shape="neural-node"></div>
+          <div className={styles.aiShape} data-shape="circuit"></div>
+          
+          {/* AI Central Hub */}
+          <div className={styles.centralCluster}>
+            <div className={styles.aiHub} data-shape="ai-core">
+              <div className={styles.aiCoreInner}></div>
+              <div className={styles.aiCoreGlow}></div>
+            </div>
+          </div>
+          
+          {/* Neural Network Connections */}
+          <div className={styles.neuralConnection} data-connection="1"></div>
+          <div className={styles.neuralConnection} data-connection="2"></div>
+          <div className={styles.neuralConnection} data-connection="3"></div>
+          
+          {/* Data Streams */}
+          <div className={styles.dataStream} data-stream="1"></div>
+          <div className={styles.dataStream} data-stream="2"></div>
+          <div className={styles.dataStream} data-stream="3"></div>
+          
+          {/* Pulse Effects */}
+          <div className={styles.pulseEffect}></div>
+          <div className={styles.pulseEffect} style={{ '--delay': '2s' } as React.CSSProperties}></div>
+          <div className={styles.pulseEffect} style={{ '--delay': '4s' } as React.CSSProperties}></div>
+        </div>
       </div>
 
       <div className={styles.container}>
@@ -218,21 +237,6 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column - Loading Animation */}
-          <div className={styles.rightSection}>
-            <div className={styles.loadingContainer}>
-              <div className={styles.loadingCircle}>
-                <div className={styles.loadingProgress} style={{ '--progress': `${loadingPercentage}%` } as React.CSSProperties}>
-                  <div className={styles.loadingPercentage}>
-                    {showLoadingText ? 'Loading...' : `${Math.round(loadingPercentage)}%`}
-                  </div>
-                </div>
-              </div>
-              <div className={styles.loadingLabel}>
-                System Initialization
-              </div>
-            </div>
-          </div>
 
           {/* Video Modal */}
           {isModalOpen && (
@@ -246,7 +250,7 @@ const Hero = () => {
                 </button>
                 <div className={styles.videoContainer}>
                   <iframe
-                    src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+                    src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1&mute=1&rel=0&modestbranding=1"
                     title="Bond Credit Demo"
                     frameBorder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"

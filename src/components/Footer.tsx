@@ -19,7 +19,7 @@ const Footer = () => {
             <div className="flex items-center group">
               <div className="relative">
                 <Image
-                  src="/bondcredit-logo-white.png"
+                  src="/mini-logo.png"
                   alt="Bond Credit"
                   width={40}
                   height={40}
@@ -97,8 +97,14 @@ const Footer = () => {
         {/* Separator Line */}
         <div className="w-full h-px bg-blue-400/30 mb-6"></div>
 
-        {/* Bottom Legal Links */}
-        <div className="flex justify-end">
+        {/* Bottom Section */}
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+          {/* Copyright */}
+          <div className="text-sm text-white/60">
+            © 2025 bond.credit. All Rights Reserved.
+          </div>
+          
+          {/* Legal Links */}
           <div className="flex items-center space-x-6 text-sm text-white">
             {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((link, index) => (
               <React.Fragment key={link}>

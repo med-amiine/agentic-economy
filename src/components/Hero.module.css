@@ -72,7 +72,7 @@
 /* Container & Layout */
 .container {
   position: relative;
-  z-index: 20;
+  z-index: 10;
   max-width: 1200px; /* Add max-width to prevent too much spread */
   margin: 0;
   padding-left: 80px; /* Move content more to the right */
@@ -697,11 +697,11 @@
 /* Right Section */
 .rightSection {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   height: 100%;
   min-height: 400px;
-  padding-right: 310px;
+  padding-right: 40px;
 }
 
 /* Loading Container */
@@ -928,6 +928,500 @@
   }
 }
 
+/* ========================================
+   AI AGENT ANIMATION STYLES
+   ======================================== */
+
+/* Geometric Overlay - Full Hero Section */
+.geometricOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+/* Geometric Container */
+.geometricContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* AI Agent Shapes */
+.aiShape {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, rgba(44, 91, 255, 0.8), rgba(96, 165, 250, 0.6));
+  border-radius: 8px;
+  animation: aiFloat 15s ease-in-out infinite;
+  opacity: 0.9;
+  box-shadow: 0 4px 20px rgba(44, 91, 255, 0.5);
+  z-index: 5;
+  border: 2px solid rgba(44, 91, 255, 0.3);
+}
+
+/* Neural Node Shape */
+.aiShape[data-shape="neural-node"] {
+  width: 50px;
+  height: 50px;
+  background: radial-gradient(circle, rgba(44, 91, 255, 0.9), rgba(30, 64, 175, 0.7));
+  border-radius: 50%;
+  border: 3px solid rgba(96, 165, 250, 0.6);
+  animation: aiFloat 15s ease-in-out infinite, neuralPulse 2s ease-in-out infinite;
+  box-shadow: 0 0 25px rgba(44, 91, 255, 0.6);
+}
+
+/* Circuit Board Shape - Hexagon */
+.aiShape[data-shape="circuit"] {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(45deg, rgba(96, 165, 250, 0.8), rgba(147, 197, 253, 0.6));
+  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  border-radius: 0;
+  position: relative;
+  animation: aiFloat 15s ease-in-out infinite, circuitGlow 3s ease-in-out infinite;
+  box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+}
+
+.aiShape[data-shape="circuit"]::before {
+  content: '';
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  right: 15px;
+  height: 2px;
+  background: rgba(44, 91, 255, 0.8);
+  border-radius: 1px;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+}
+
+.aiShape[data-shape="circuit"]::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: 20px;
+  right: 20px;
+  height: 2px;
+  background: rgba(44, 91, 255, 0.6);
+  border-radius: 1px;
+  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+}
+
+/* Data Flow Shape */
+.aiShape[data-shape="data-flow"] {
+  width: 60px;
+  height: 20px;
+  background: linear-gradient(90deg, rgba(44, 91, 255, 0.8), rgba(96, 165, 250, 0.6), rgba(44, 91, 255, 0.8));
+  border-radius: 10px;
+  animation: aiFloat 15s ease-in-out infinite, dataFlow 2.5s ease-in-out infinite;
+  box-shadow: 0 0 15px rgba(44, 91, 255, 0.4);
+  position: relative;
+}
+
+.aiShape[data-shape="data-flow"]::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent);
+  animation: dataStream 1.5s linear infinite;
+}
+
+/* Central Cluster - Circle Shape */
+.centralCluster {
+  position: absolute;
+  top: 50%;        /* Move up/down: 0% = top, 50% = center, 100% = bottom */
+  left: 72.6%;       /* Move left/right: 0% = left, 50% = center, 100% = right */
+  transform: translate(-50%, -50%);
+  z-index: 10;
+}
+
+/* Example: Move circle to top-left corner */
+/* .centralCluster { top: 20%; left: 20%; } */
+
+/* Example: Move circle to bottom-right corner */
+/* .centralCluster { top: 80%; left: 80%; } */
+
+/* Example: Move circle to center-left */
+/* .centralCluster { top: 50%; left: 20%; } */
+
+/* AI Hub - Central Processing Unit */
+.aiHub {
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(44, 91, 255, 0.9), rgba(30, 64, 175, 0.7));
+  border-radius: 50%;
+  animation: aiHubPulse 4s ease-in-out infinite;
+  box-shadow: 0 0 30px rgba(44, 91, 255, 0.8);
+  position: relative;
+  border: 3px solid rgba(96, 165, 250, 0.6);
+}
+
+.aiCoreInner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(96, 165, 250, 0.7));
+  border-radius: 50%;
+  animation: coreRotate 3s linear infinite;
+}
+
+.aiCoreGlow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, transparent, rgba(44, 91, 255, 0.3));
+  border-radius: 50%;
+  animation: coreGlow 2s ease-in-out infinite;
+}
+
+/* Pulse Effects - Ripples around the circle */
+.pulseEffect {
+  position: absolute;
+  top: 50%;        /* Center vertically with the circle */
+  left: 72.6%;     /* Match the circle's horizontal position */
+  transform: translate(-50%, -50%);
+  width: 300px;
+  height: 300px;
+  border: 1px solid rgba(44, 91, 255, 0.2);
+  border-radius: 50%;
+  animation: pulseRipple 6s ease-out infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+/* Example: Move pulse effects to different positions around the circle */
+
+/* Pulse effect 1 - Above the circle */
+/* .pulseEffect:nth-child(1) { top: 30%; left: 72.6%; } */
+
+/* Pulse effect 2 - Below the circle */
+/* .pulseEffect:nth-child(2) { top: 70%; left: 72.6%; } */
+
+/* Pulse effect 3 - Left of the circle */
+/* .pulseEffect:nth-child(3) { top: 50%; left: 52.6%; } */
+
+/* Pulse effect 4 - Right of the circle */
+/* .pulseEffect:nth-child(4) { top: 50%; left: 92.6%; } */
+
+/* Pulse effect 5 - Top-left diagonal */
+/* .pulseEffect:nth-child(5) { top: 35%; left: 57.6%; } */
+
+/* Pulse effect 6 - Top-right diagonal */
+/* .pulseEffect:nth-child(6) { top: 35%; left: 87.6%; } */
+
+/* Pulse effect 7 - Bottom-left diagonal */
+/* .pulseEffect:nth-child(7) { top: 65%; left: 57.6%; } */
+
+/* Pulse effect 8 - Bottom-right diagonal */
+/* .pulseEffect:nth-child(8) { top: 65%; left: 87.6%; } */
+
+/* Neural Network Connections */
+.neuralConnection {
+  position: absolute;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(44, 91, 255, 0.6), rgba(96, 165, 250, 0.4), rgba(44, 91, 255, 0.6));
+  border-radius: 1px;
+  animation: neuralFlow 4s ease-in-out infinite;
+  z-index: 3;
+}
+
+.neuralConnection[data-connection="1"] {
+  top: 45%;
+  left: 20%;
+  width: 200px;
+  transform: rotate(15deg);
+  animation-delay: 0s;
+}
+
+.neuralConnection[data-connection="2"] {
+  top: 55%;
+  left: 15%;
+  width: 180px;
+  transform: rotate(-10deg);
+  animation-delay: 1.5s;
+}
+
+.neuralConnection[data-connection="3"] {
+  top: 50%;
+  left: 85%;
+  width: 150px;
+  transform: rotate(25deg);
+  animation-delay: 3s;
+}
+
+/* Data Streams */
+.dataStream {
+  position: absolute;
+  width: 3px;
+  background: linear-gradient(180deg, rgba(44, 91, 255, 0.8), rgba(96, 165, 250, 0.6), rgba(44, 91, 255, 0.8));
+  border-radius: 2px;
+  animation: dataStreamFlow 3s ease-in-out infinite;
+  z-index: 4;
+}
+
+.dataStream[data-stream="1"] {
+  top: 20%;
+  left: 72.6%;
+  height: 100px;
+  animation-delay: 0s;
+}
+
+.dataStream[data-stream="2"] {
+  top: 30%;
+  left: 75%;
+  height: 80px;
+  animation-delay: 1s;
+}
+
+.dataStream[data-stream="3"] {
+  top: 40%;
+  left: 70%;
+  height: 90px;
+  animation-delay: 2s;
+}
+
+/* Active Examples - Uncomment to use these positions */
+
+/* Create a ring of pulse effects around the circle */
+/* .pulseEffect:nth-child(1) { top: 40%; left: 72.6%; } */  /* Above */
+/* .pulseEffect:nth-child(2) { top: 60%; left: 72.6%; } */  /* Below */
+/* .pulseEffect:nth-child(3) { top: 50%; left: 62.6%; } */  /* Left */
+/* .pulseEffect:nth-child(4) { top: 50%; left: 82.6%; } */  /* Right */
+
+/* Create diagonal pulse effects */
+/* .pulseEffect:nth-child(1) { top: 35%; left: 57.6%; } */  /* Top-left */
+/* .pulseEffect:nth-child(2) { top: 35%; left: 87.6%; } */  /* Top-right */
+/* .pulseEffect:nth-child(3) { top: 65%; left: 57.6%; } */  /* Bottom-left */
+/* .pulseEffect:nth-child(4) { top: 65%; left: 87.6%; } */  /* Bottom-right */
+
+/* AI Agent Animations */
+@keyframes aiFloat {
+  0% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(150px, -80px) rotate(90deg) scale(1.1);
+  }
+  50% {
+    transform: translate(-120px, 100px) rotate(180deg) scale(0.9);
+  }
+  75% {
+    transform: translate(100px, 120px) rotate(270deg) scale(1.05);
+  }
+  100% {
+    transform: translate(0, 0) rotate(360deg) scale(1);
+  }
+}
+
+@keyframes neuralPulse {
+  0%, 100% {
+    box-shadow: 0 0 25px rgba(44, 91, 255, 0.6);
+    transform: scale(1);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(44, 91, 255, 0.8);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes circuitGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(96, 165, 250, 0.7);
+  }
+}
+
+@keyframes dataFlow {
+  0%, 100% {
+    transform: scaleX(1);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scaleX(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes dataStream {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes aiHubPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(44, 91, 255, 0.8);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 40px rgba(44, 91, 255, 1);
+  }
+}
+
+@keyframes coreRotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes coreGlow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+@keyframes neuralFlow {
+  0%, 100% {
+    opacity: 0.6;
+    transform: scaleX(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleX(1.1);
+  }
+}
+
+@keyframes dataStreamFlow {
+  0%, 100% {
+    opacity: 0.7;
+    transform: scaleY(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scaleY(1.2);
+  }
+}
+
+@keyframes morphToTriangle {
+  0%, 100% {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+  50% {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  }
+}
+
+@keyframes morphToHexagon {
+  0%, 100% {
+    clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+  }
+  50% {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  }
+}
+
+@keyframes morphToCube {
+  0%, 100% {
+    transform: rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    transform: rotateX(45deg) rotateY(45deg);
+  }
+}
+
+@keyframes clusterPulse {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 0 30px rgba(44, 91, 255, 0.6);
+  }
+  50% {
+    transform: scale(1.2);
+    box-shadow: 0 0 50px rgba(44, 91, 255, 0.8);
+  }
+}
+
+@keyframes pulseRipple {
+  0% {
+    width: 300px;
+    height: 300px;
+    opacity: 0.8;
+  }
+  100% {
+    width: 600px;
+    height: 600px;
+    opacity: 0;
+  }
+}
+
+/* AI Shape Positioning - Neural Network Layout */
+.aiShape:nth-child(1) {
+  animation-delay: 0s;
+  top: 15%;
+  left: 20%;
+}
+
+.aiShape:nth-child(2) {
+  animation-delay: 2s;
+  top: 25%;
+  right: 20%;
+}
+
+.aiShape:nth-child(3) {
+  animation-delay: 4s;
+  bottom: 25%;
+  left: 15%;
+}
+
+.aiShape:nth-child(4) {
+  animation-delay: 6s;
+  bottom: 15%;
+  right: 15%;
+}
+
+.aiShape:nth-child(5) {
+  animation-delay: 8s;
+  top: 10%;
+  left: 60%;
+}
+
+.aiShape:nth-child(6) {
+  animation-delay: 10s;
+  top: 75%;
+  right: 10%;
+}
+
+.aiShape:nth-child(7) {
+  animation-delay: 12s;
+  bottom: 10%;
+  left: 70%;
+}
+
+.aiShape:nth-child(8) {
+  animation-delay: 14s;
+  top: 60%;
+  left: 10%;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .grid {
@@ -935,26 +1429,22 @@
     gap: 32px;
   }
   
-  .rightSection {
-    min-height: 300px;
+  .geometricOverlay {
+    z-index: 1;
   }
   
-  .networkContainer {
-    height: 300px;
+  .geometricShape {
+    width: 30px;
+    height: 30px;
   }
   
-  .centralOrb {
+  .clusterShape {
     width: 40px;
     height: 40px;
   }
   
-  .orbRipple {
-    width: 80px;
-    height: 80px;
-  }
-  
-  .networkNode {
-    width: 8px;
-    height: 8px;
+  .pulseEffect {
+    width: 200px;
+    height: 200px;
   }
 }

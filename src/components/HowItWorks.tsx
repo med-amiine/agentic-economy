@@ -40,6 +40,7 @@ const HowItWorks = () => {
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary-500/3 rounded-full blur-3xl"></div>
         <div className="absolute bottom-1/4 right-1/3 w-80 h-80 bg-blue-400/3 rounded-full blur-3xl"></div>
       </div>
+
       
       <div className="container-custom relative z-10">
         <div className="text-center space-y-8">

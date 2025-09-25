@@ -10,6 +10,7 @@ const WhyBond = () => {
         <div className={styles.backgroundBlur1}></div>
         <div className={styles.backgroundBlur2}></div>
       </div>
+
       
       <div className={`${styles.container} container-custom`}>
         <div className={styles.content}>
