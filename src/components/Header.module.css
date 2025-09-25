@@ -1,0 +1,301 @@
+/* ========================================
+   HEADER COMPONENT STYLES
+   ======================================== */
+
+/* Main Header */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: all 0.3s ease;
+  background-color: transparent;
+}
+
+.header.scrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 15px -3px rgba(0, 0, 0, 0.07), 0 10px 20px -2px rgba(0, 0, 0, 0.04);
+}
+
+.header.hidden {
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+
+/* Container */
+.containerResponsive {
+  max-width: 1280px; /* 80rem -> 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 16px; /* 1rem -> 16px */
+  padding-right: 16px; /* 1rem -> 16px */
+}
+
+@media (min-width: 640px) { /* sm breakpoint */
+  .containerResponsive {
+    padding-left: 24px; /* 1.5rem -> 24px */
+    padding-right: 24px; /* 1.5rem -> 24px */
+  }
+}
+
+@media (min-width: 1024px) { /* lg breakpoint */
+  .containerResponsive {
+    padding-left: 32px; /* 2rem -> 32px */
+    padding-right: 32px; /* 2rem -> 32px */
+  }
+}
+
+/* Header Content Layout */
+.headerContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px; /* 4rem -> 64px */
+  width: 100%;
+}
+
+/* Logo Section */
+.logoContainer {
+  flex-shrink: 0;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.logoImage {
+  width: 48px; /* 3rem -> 48px */
+  height: 48px; /* 3rem -> 48px */
+  transition: opacity 0.3s ease;
+}
+
+.logoImage:hover {
+  opacity: 0.8;
+}
+
+/* Desktop Navigation */
+.desktopNav {
+  display: none; /* Hidden on mobile */
+  align-items: center;
+  gap: 32px; /* 2rem -> 32px */
+  flex: 1;
+  justify-content: center;
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .desktopNav {
+    display: flex; /* Show on desktop */
+  }
+}
+
+.navLink {
+  color: #6b7280; /* neutral-600 */
+  transition: color 0.2s ease;
+  font-weight: 500;
+  font-size: 12px; /* 0.8rem -> 12px */
+}
+
+.navLink:hover {
+  color: #2c5bff; /* primary-500 */
+}
+
+.primaryButton {
+  display: inline-block;
+  background-color: #2c5bff; /* primary-500 */
+  color: white;
+  padding: 12px 24px; /* 0.75rem 1.5rem -> 12px 24px */
+  border-radius: 8px; /* 0.5rem -> 8px */
+  font-weight: 600;
+  font-size: 12px; /* 0.8rem -> 12px */
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.primaryButton:hover {
+  background-color: #1e40ff; /* primary-600 */
+}
+
+/* Mobile Menu Button */
+.mobileMenuButton {
+  padding: 8px; /* 0.5rem -> 8px */
+  color: #0a0d14; /* neutral-900 */
+  transition: color 0.2s ease;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .mobileMenuButton {
+    display: none; /* Hide on desktop */
+  }
+}
+
+.mobileMenuButton:hover {
+  color: #2c5bff; /* primary-500 */
+}
+
+.mobileMenuIcon {
+  height: 24px; /* 1.5rem -> 24px */
+  width: 24px; /* 1.5rem -> 24px */
+}
+
+/* Scroll Hint */
+.scrollHint {
+  display: none; /* Hidden on mobile */
+  flex-direction: column;
+  align-items: center;
+  gap: 12px; /* Increased gap between text and icon */
+  color: #60a5fa; /* Lighter blue like in screenshot */
+  font-size: 14px; /* Larger text */
+  font-weight: 500;
+  animation: fadeInUp 0.8s ease-out 2s both;
+  position: fixed;
+  right: 50%;
+  transform: translateX(50%);
+  bottom: 20px; /* Moved down from 40px to 20px */
+  z-index: 1000;
+  background: transparent; /* No background like in screenshot */
+  padding: 0;
+  border-radius: 0;
+  backdrop-filter: none;
+  border: none;
+  box-shadow: none;
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .scrollHint {
+    display: flex; /* Show on desktop */
+  }
+}
+
+.scrollHintText {
+  white-space: nowrap;
+}
+
+.scrollHintIcon {
+  height: 24px; /* Larger icon like in screenshot */
+  width: 24px; /* Larger icon like in screenshot */
+  animation: bounce 2s infinite;
+  color: #60a5fa; /* Match text color */
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-4px);
+  }
+  60% {
+    transform: translateY(-2px);
+  }
+}
+
+/* Mobile Navigation */
+.mobileNavContainer {
+  background-color: white;
+  border-top: 1px solid #e5e7eb; /* border-neutral-200 */
+  padding-top: 16px; /* 1rem -> 16px */
+  padding-bottom: 16px; /* 1rem -> 16px */
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+@media (min-width: 768px) { /* md breakpoint */
+  .mobileNavContainer {
+    display: none; /* Hide on desktop */
+  }
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: 16px; /* 1rem -> 16px */
+}
+
+.mobileNavLink {
+  color: #6b7280; /* neutral-600 */
+  transition: color 0.2s ease;
+  font-weight: 500;
+  padding-left: 16px; /* 1rem -> 16px */
+  padding-right: 16px; /* 1rem -> 16px */
+  text-decoration: none;
+}
+
+.mobileNavLink:hover {
+  color: #2c5bff; /* primary-500 */
+}
+
+.mobilePrimaryButton {
+  display: inline-block;
+  background-color: #2c5bff; /* primary-500 */
+  color: white;
+  padding: 12px 16px; /* 0.75rem 1rem -> 12px 16px */
+  border-radius: 8px; /* 0.5rem -> 8px */
+  font-weight: 600;
+  font-size: 18px; /* 1.125rem -> 18px */
+  text-align: center;
+  margin-left: 16px; /* 1rem -> 16px */
+  margin-right: 16px; /* 1rem -> 16px */
+  text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Focus States */
+.navLink:focus,
+.primaryButton:focus,
+.mobileNavLink:focus,
+.mobilePrimaryButton:focus {
+  outline: 2px solid #2c5bff;
+  outline-offset: 2px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .header {
+    transition: none;
+  }
+  
+  .mobileNavContainer {
+    animation: none;
+  }
+  
+  .logoImage {
+    transition: none;
+  }
+  
+  .navLink,
+  .primaryButton,
+  .mobileNavLink,
+  .mobilePrimaryButton {
+    transition: none;
+  }
+}
