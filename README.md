@@ -64,3 +64,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Console removal in production
 - Optimized font loading
 - Static generation for better SEO
+
+## Animation Features
+
+- **Typing Animation**: Dynamic text typing effect for hero section
+- **Loading Progress**: Animated progress bar with percentage display
+- **Smooth Transitions**: Hover effects and smooth state changes
+- **Responsive Animations**: Optimized for different screen sizes
