@@ -1,7 +1,8 @@
 {
   "name": "bond-credit-nextjs",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A modern Next.js website for Bond Credit's agentic banking platform with advanced animations and responsive design",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
