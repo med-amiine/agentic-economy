@@ -7,14 +7,14 @@
   position: relative;
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start; /* Changed from center to flex-start */
   background-color: #f8fafc;
   background-image: url('/agentic-bg.png');
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   overflow: hidden;
-  padding-top: 64px; /* 4rem -> 64px */
+  padding-top: 100px; /* Increased from 80px to 100px */
 }
 
 .heroSection::before {
@@ -77,6 +77,7 @@
   margin: 0;
   padding-left: 80px; /* Move content more to the right */
   padding-right: 24px;
+  padding-top: 20px; /* Reduced from 40px to 20px */
   width: 100%;
 }
 
@@ -95,7 +96,7 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  gap: 32px; /* 2rem -> 32px */
+  gap: 20px; /* Reduced from 24px to 20px */
   margin-top: 0;
 }
 
@@ -103,7 +104,7 @@
 .headlineSection {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* 1.5rem -> 24px */
+  gap: 12px; /* Reduced from 16px to 12px */
   min-height: 120px; /* Fixed height to prevent content shifting */
 }
 
@@ -212,7 +213,7 @@
 .keyPoints {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 24px; /* 1.5rem -> 24px */
+  gap: 12px; /* Reduced from 16px to 12px */
 }
 
 @media (min-width: 768px) { /* md breakpoint */
@@ -294,7 +295,7 @@
 .ctaSection {
   display: flex;
   flex-direction: column;
-  gap: 16px; /* 1rem -> 16px */
+  gap: 8px; /* Reduced from 12px to 8px */
 }
 
 @media (min-width: 640px) { /* sm breakpoint */
@@ -386,7 +387,7 @@
 .metricsSection {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* 1.5rem -> 24px */
+  gap: 12px; /* Reduced from 16px to 12px */
   max-width: 1280px; /* 80rem -> 1280px */
 }
 
@@ -960,7 +961,7 @@
   width: 50px;
   height: 50px;
   background: linear-gradient(135deg, rgba(44, 91, 255, 0.8), rgba(96, 165, 250, 0.6));
-  border-radius: 8px;
+  border-radius: 50%; /* Changed from 8px to 50% to make it circular */
   animation: aiFloat 15s ease-in-out infinite;
   opacity: 0.9;
   box-shadow: 0 4px 20px rgba(44, 91, 255, 0.5);
@@ -979,41 +980,18 @@
   box-shadow: 0 0 25px rgba(44, 91, 255, 0.6);
 }
 
-/* Circuit Board Shape - Hexagon */
+/* Circuit Board Shape - Circle */
 .aiShape[data-shape="circuit"] {
   width: 50px;
   height: 50px;
   background: linear-gradient(45deg, rgba(96, 165, 250, 0.8), rgba(147, 197, 253, 0.6));
-  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
-  border-radius: 0;
+  border-radius: 50%; /* Changed from hexagon to circle */
   position: relative;
   animation: aiFloat 15s ease-in-out infinite, circuitGlow 3s ease-in-out infinite;
   box-shadow: 0 0 20px rgba(96, 165, 250, 0.5);
 }
 
-.aiShape[data-shape="circuit"]::before {
-  content: '';
-  position: absolute;
-  top: 15px;
-  left: 15px;
-  right: 15px;
-  height: 2px;
-  background: rgba(44, 91, 255, 0.8);
-  border-radius: 1px;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
-}
-
-.aiShape[data-shape="circuit"]::after {
-  content: '';
-  position: absolute;
-  top: 25px;
-  left: 20px;
-  right: 20px;
-  height: 2px;
-  background: rgba(44, 91, 255, 0.6);
-  border-radius: 1px;
-  clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
-}
+/* Removed pseudo-elements since we're now using circles instead of hexagons */
 
 /* Data Flow Shape */
 .aiShape[data-shape="data-flow"] {
@@ -1040,10 +1018,11 @@
 /* Central Cluster - Circle Shape */
 .centralCluster {
   position: absolute;
-  top: 50%;        /* Move up/down: 0% = top, 50% = center, 100% = bottom */
+  top: 50.2%;        /* Moved up from 50% to 40% */
   left: 72.6%;       /* Move left/right: 0% = left, 50% = center, 100% = right */
   transform: translate(-50%, -50%);
-  z-index: 10;
+  z-index: 100; /* Increased z-index to ensure it's on top */
+  pointer-events: auto; /* Enable hover interactions */
 }
 
 /* Example: Move circle to top-left corner */
@@ -1065,6 +1044,20 @@
   box-shadow: 0 0 30px rgba(44, 91, 255, 0.8);
   position: relative;
   border: 3px solid rgba(96, 165, 250, 0.6);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+/* Hover effect for central cluster */
+.centralCluster:hover .aiHub {
+  transform: scale(1.5) !important;
+  background: radial-gradient(circle, rgba(255, 0, 0, 0.9), rgba(255, 100, 100, 0.7)) !important;
+  box-shadow: 
+    0 0 100px rgba(255, 0, 0, 1),
+    0 0 150px rgba(255, 0, 0, 0.8),
+    0 0 200px rgba(255, 0, 0, 0.6) !important;
+  border-color: rgba(255, 0, 0, 1) !important;
+  animation: aiHubPulse 0.5s ease-in-out infinite !important; /* Very fast pulse on hover */
 }
 
 .aiCoreInner {
@@ -1077,6 +1070,15 @@
   background: radial-gradient(circle, rgba(255, 255, 255, 0.9), rgba(96, 165, 250, 0.7));
   border-radius: 50%;
   animation: coreRotate 3s linear infinite;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced inner core on hover */
+.centralCluster:hover .aiCoreInner {
+  width: 50px !important;
+  height: 50px !important;
+  background: radial-gradient(circle, rgba(255, 255, 255, 1), rgba(96, 165, 250, 0.9)) !important;
+  animation: coreRotate 1.5s linear infinite !important; /* Faster rotation on hover */
 }
 
 .aiCoreGlow {
@@ -1089,12 +1091,21 @@
   background: radial-gradient(circle, transparent, rgba(44, 91, 255, 0.3));
   border-radius: 50%;
   animation: coreGlow 2s ease-in-out infinite;
+  transition: all 0.3s ease;
+}
+
+/* Enhanced outer glow on hover */
+.centralCluster:hover .aiCoreGlow {
+  width: 150px !important;
+  height: 150px !important;
+  background: radial-gradient(circle, transparent, rgba(44, 91, 255, 0.5)) !important;
+  animation: coreGlow 1s ease-in-out infinite !important; /* Faster glow on hover */
 }
 
 /* Pulse Effects - Ripples around the circle */
 .pulseEffect {
   position: absolute;
-  top: 50%;        /* Center vertically with the circle */
+  top: 50%;        /* Match the circle's new vertical position */
   left: 72.6%;     /* Match the circle's horizontal position */
   transform: translate(-50%, -50%);
   width: 300px;
@@ -1176,21 +1187,21 @@
 }
 
 .dataStream[data-stream="1"] {
-  top: 20%;
+  top: 10%;
   left: 72.6%;
   height: 100px;
   animation-delay: 0s;
 }
 
 .dataStream[data-stream="2"] {
-  top: 30%;
+  top: 20%;
   left: 75%;
   height: 80px;
   animation-delay: 1s;
 }
 
 .dataStream[data-stream="3"] {
-  top: 40%;
+  top: 30%;
   left: 70%;
   height: 90px;
   animation-delay: 2s;

@@ -6,34 +6,24 @@ const FAQ = () => {
 
   const faqs = [
     {
+      question: 'How are scores computed?',
+      answer: 'DeFi-specific factors: provenance, performance consistency, risk behavior, onchain telemetry. Bond Scores are updated in real-time based on performance. Lower scores automatically reduce credit caps, protecting the system from concentration risk.',
+      category: 'Scoring'
+    },
+    {
       question: 'Is agUSD fully redeemable?',
       answer: 'Yes, 1:1 at the savings layer; system solvency is protected by allocator collateral, dynamic credit caps, and AVS slashing.',
       category: 'Technical'
     },
     {
-      question: 'How are scores computed?',
-      answer: 'DeFi-specific factors: provenance, performance consistency, risk behavior, on-chain telemetry.',
-      category: 'Scoring'
-    },
-    {
       question: "What's the risks?",
-      answer: 'We allocate credit based on trust & performance, not static collateral.',
+      answer: 'No protocol can be considered entirely risk free, but extensive steps have been taken to minimize these risks as much as possible – the Bond Protocol code is publicly available and auditable by anyone, and has been audited by multiple smart contract auditors. Any code changes must be executed through the onchain governance processes. Additionally, there is an ongoing bug bounty campaign and service providers specializing in technical reviews and risk mitigation.',
       category: 'Risk'
     },
     {
       question: 'How does EigenCloud AVS security work?',
       answer: 'Restakers provide economic security through slashing conditions. If agents misbehave or fail to meet obligations, restaker funds are at risk, aligning incentives.',
       category: 'Security'
-    },
-    {
-      question: 'How do I get started as an agent?',
-      answer: 'Apply through our agent portal, complete the scoring process, and start with a small credit line to build your reputation.',
-      category: 'Getting Started'
-    },
-    {
-      question: 'What makes Bond different from traditional DeFi?',
-      answer: 'Bond focuses on agent performance and reputation rather than just collateral, enabling more efficient capital allocation in the agentic economy.',
-      category: 'Platform'
     }
   ];
 

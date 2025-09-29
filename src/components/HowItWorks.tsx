@@ -5,7 +5,7 @@ const HowItWorks = () => {
   const partners = [
     'TrueFi',
     'Polygon',
-    'Mode',
+    'Mode Network',
     'Covalent',
     'DappRadar',
     'Barclays',
@@ -16,19 +16,16 @@ const HowItWorks = () => {
     {
       name: "Nathan Vandy",
       role: "Co-Founder & CEO",
-      experience: "Former Head of DAO at DapRaddar",
       photo: "/nathan-photo.jpg"
     },
     {
       name: "Med Amine Idmoussi",
       role: "Co-Founder & CTO", 
-      experience: "Ex-Polygon, Mode Network",
       photo: "/med-photo.jpg"
     },
     {
       name: "Niels Abdelatif",
-      role: "Head of Risk",
-      experience: "Former Goldman Sachs VP",
+      role: "Co-Founder & COO",
       photo: "/niels-photo.jpg"
     }
   ];
@@ -73,23 +70,50 @@ const HowItWorks = () => {
                 <h3 className="text-lg font-bold text-neutral-900 mb-2">{member.name}</h3>
                 <p className="text-primary-500 font-semibold mb-3 text-sm">{member.role}</p>
                 <p className="text-xs text-neutral-600">{member.experience}</p>
+                
+                {/* TrueFi and DappRadar under Co-Founder & CEO */}
+                {member.role === "Co-Founder & CEO" && (
+                  <div className="mt-4 flex gap-2">
+                    <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
+                      <span className="text-neutral-600 text-xs font-medium">TrueFi</span>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
+                      <span className="text-neutral-600 text-xs font-medium">DappRadar</span>
+                    </div>
+                  </div>
+                )}
+                
+                {/* Polygon, Mode Network, and Sage under Co-Founder & CTO */}
+                {member.role === "Co-Founder & CTO" && (
+                  <div className="mt-4 flex gap-2">
+                    <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
+                      <span className="text-neutral-600 text-xs font-medium">Polygon</span>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
+                      <span className="text-neutral-600 text-xs font-medium">Mode Network</span>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
+                      <span className="text-neutral-600 text-xs font-medium">Sage</span>
+                    </div>
+                  </div>
+                )}
+                
+                {/* ABN, AMRO, and WTO under Head of Risk */}
+                {member.role === "Co-Founder & COO" && (
+                  <div className="mt-4 flex gap-2">
+                    <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
+                      <span className="text-neutral-600 text-xs font-medium">ABN AMRO</span>
+                    </div>
+                    <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
+                      <span className="text-neutral-600 text-xs font-medium">WTO</span>
+                    </div>
+                  </div>
+                )}
               </div>
             ))}
           </div>
           
-          {/* Partner Logos */}
-          <div className="mt-20">
-            <h3 className="text-sm font-semibold text-neutral-500 mb-8 uppercase tracking-wider">Backed by Industry Leaders</h3>
-            <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
-              {partners.map((partner, index) => (
-                <div key={index} className="group bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-xl px-6 py-3 hover:bg-white hover:border-primary-200/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <span className="text-neutral-600 text-sm font-medium group-hover:text-primary-500 transition-colors">
-                    {partner}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
+
         </div>
       </div>
     </section>

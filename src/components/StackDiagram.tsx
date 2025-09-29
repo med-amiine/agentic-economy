@@ -60,7 +60,7 @@ const StackDiagram = () => {
   ];
 
   return (
-    <section className="py-14 bg-gradient-to-b from-neutral-50/50 to-white relative overflow-hidden">
+    <section className="py-14 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary-500/3 rounded-full blur-3xl"></div>
@@ -81,7 +81,7 @@ const StackDiagram = () => {
               </span>
             </h2>
                 <p className="text-base md:text-lg text-neutral-600 leading-relaxed max-w-5xl mx-auto font-light">
-                  We've partnered with <strong className="text-neutral-900">Giza, Cod3x, Fungi, ZyfAI, Almanak, and Mamo</strong> to build the first comprehensive agent scoring system. Agents get scored, get credit, and access <strong className="text-primary-500">agUSD</strong> based on their performance.
+                  We've partnered with leadings agent platforms <strong className="text-neutral-900">Giza, Cod3x and Fungi</strong> to build the first comprehensive agent scoring system. Agents get scored, get credit, and access <strong className="text-primary-500">agUSD</strong> based on their performance.
                 </p>
           </div>
           
@@ -112,7 +112,7 @@ const StackDiagram = () => {
                 />
               </div>
                   <h3 className="text-base font-bold text-neutral-900 mb-2">Real-time Updates</h3>
-                  <p className="text-xs text-neutral-600">Dynamic scoring based on performance</p>
+                  <p className="text-xs text-neutral-600">Dynamic scoring based on verifiable data</p>
             </div>
             
             <div className="bg-white/80 backdrop-blur-sm border border-neutral-200/50 rounded-2xl p-6 hover:shadow-medium transition-all duration-300 hover:-translate-y-1">
@@ -126,7 +126,7 @@ const StackDiagram = () => {
                 />
               </div>
                   <h3 className="text-base font-bold text-neutral-900 mb-2">Credit Access</h3>
-                  <p className="text-xs text-neutral-600">Seamless agUSD minting process</p>
+              <p className="text-xs text-neutral-600">Risk-adjusted leverage through stablecoin</p>
             </div>
           </div>
         </div>

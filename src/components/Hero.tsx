@@ -183,7 +183,7 @@ const Hero = () => {
                   EARN
                 </div>
                 <p className={styles.keyPointDescription}>
-                  Earn risk-adjusted base yield via our <strong className="primary">Morpho Agent</strong>
+                  Earn risk-adjusted base yield
                 </p>
               </div>
             </div>
@@ -208,14 +208,14 @@ const Hero = () => {
 
                 {/* Key Metrics - Modern Card Layout */}
                 <div className={styles.metricsSection}>
-                  {/* Left - TOTAL VALUE VERIFIED */}
+                  {/* Left - Total AUM in Agentic Economy */}
                   <div className={styles.metricsLeft}>
                     <div className={styles.totalValueCard}>
                       <div className={styles.totalValueAmount}>
-                        $61,228,005.85
+                        $137.32M
                       </div>
                       <div className={styles.totalValueLabel}>
-                        TOTAL VALUE VERIFIED
+                        Total AUM in Agentic Economy
                       </div>
                     </div>
                   </div>
@@ -224,7 +224,7 @@ const Hero = () => {
                   <div className={styles.metricsRight}>
                     <div className={styles.agentsScoredCard}>
                       <div className={styles.agentsScoredCount}>
-                        318
+                        3
                       </div>
                       <div className={styles.agentsScoredLabel}>
                         AGENTS SCORED
