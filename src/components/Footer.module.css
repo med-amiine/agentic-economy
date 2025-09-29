@@ -1,0 +1,9 @@
+/* Footer Logo */
+.footerLogo {
+  width: 170px;
+  height: 32px;
+  background-image: url('/bondcredit-logo-w.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}

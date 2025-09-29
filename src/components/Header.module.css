@@ -64,16 +64,44 @@
 .logoLink {
   display: flex;
   align-items: center;
+  width: 140px;
+  height: 60px;
+  background-image: url('/bond-credit-logo.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.logoImage {
-  width: 40px; /* 2.5rem -> 40px */
-  height: 40px; /* 2.5rem -> 40px */
-  transition: opacity 0.3s ease;
+.logoLink:hover {
+  opacity: 1;
 }
 
-.logoImage:hover {
-  opacity: 0.8;
+.logoLink:hover::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(44, 91, 255, 0.3), rgba(44, 91, 255, 0.1), transparent);
+  border-radius: 50%;
+  filter: blur(8px);
+  z-index: -1;
+  animation: logoGlow 0.3s ease-in-out;
+}
+
+@keyframes logoGlow {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
 }
 
 /* Desktop Navigation */
@@ -159,14 +187,25 @@
   position: fixed;
   right: 50%;
   transform: translateX(50%);
-  bottom: 20px; /* Moved down from 40px to 20px */
+  bottom: 40px; /* Moved up from 20px to 40px */
   z-index: 1000;
   background: transparent; /* No background like in screenshot */
-  padding: 0;
-  border-radius: 0;
+  padding: 8px; /* Add padding for better click area */
+  border-radius: 8px; /* Add subtle border radius */
   backdrop-filter: none;
   border: none;
   box-shadow: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.scrollHint:hover {
+  color: #2c5bff; /* Darker blue on hover */
+  transform: translateX(50%) translateY(-2px); /* Slight lift on hover */
+}
+
+.scrollHint:active {
+  transform: translateX(50%) translateY(0px); /* Press down effect */
 }
 
 @media (min-width: 768px) { /* md breakpoint */
@@ -278,6 +317,10 @@
   outline-offset: 2px;
 }
 
+.scrollHint:focus {
+  outline: none;
+}
+
 /* Accessibility */
 @media (prefers-reduced-motion: reduce) {
   .header {
@@ -295,7 +338,12 @@
   .navLink,
   .primaryButton,
   .mobileNavLink,
-  .mobilePrimaryButton {
+  .mobilePrimaryButton,
+  .scrollHint {
     transition: none;
+  }
+  
+  .scrollHint {
+    animation: none;
   }
 }

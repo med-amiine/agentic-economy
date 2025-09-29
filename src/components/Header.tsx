@@ -10,6 +10,20 @@ const Header = () => {
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
 
+  const handleScrollToNext = () => {
+    // Find the next section after the hero section
+    const heroSection = document.querySelector('section');
+    if (heroSection) {
+      const nextSection = heroSection.nextElementSibling;
+      if (nextSection) {
+        nextSection.scrollIntoView({ 
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    }
+  };
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
@@ -48,13 +62,6 @@ const Header = () => {
           {/* Logo */}
           <div className={styles.logoContainer}>
             <a href="/" className={styles.logoLink}>
-              <Image
-                src="/bond-credit-logo.png"
-                alt="Bond Credit"
-                width={40}
-                height={40}
-                className={styles.logoImage}
-              />
             </a>
           </div>
 
@@ -76,10 +83,14 @@ const Header = () => {
 
           {/* Scroll Hint - Desktop Only */}
           {showScrollHint && (
-            <div className={styles.scrollHint}>
+            <button 
+              className={styles.scrollHint}
+              onClick={handleScrollToNext}
+              aria-label="Scroll to next section"
+            >
               <span className={styles.scrollHintText}>Scroll to explore</span>
               <ChevronDown className={styles.scrollHintIcon} />
-            </div>
+            </button>
           )}
 
           {/* Mobile Menu Button */}
