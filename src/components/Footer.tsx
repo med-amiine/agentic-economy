@@ -104,15 +104,14 @@ const Footer = () => {
                 <div className="w-8 h-0.5 bg-blue-400 mb-4"></div>
               </div>
               <div className="space-y-3">
-                {['Documentation'].map((link) => (
-                  <a 
-                    key={link}
-                    href={`/${link.toLowerCase()}`} 
-                    className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
-                  >
-                    {link}
-                  </a>
-                ))}
+                <a 
+                  href="https://docs.bond.credit" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
+                >
+                  Documentation
+                </a>
                 <a 
                   href="/brand-kit" 
                   className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
