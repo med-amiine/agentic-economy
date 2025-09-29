@@ -3,7 +3,11 @@ import { Menu, X, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import styles from './Header.module.css';
 
-const Header = () => {
+interface HeaderProps {
+  hideScrollHint?: boolean;
+}
+
+const Header = ({ hideScrollHint = false }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollHint, setShowScrollHint] = useState(true);
@@ -67,7 +71,7 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className={styles.desktopNav}>
-            <a href="/docs" className={styles.navLink}>
+            <a href="https://docs.bond.credit" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
               Docs
             </a>
             <a href="/agents" className={styles.navLink}>
@@ -82,7 +86,7 @@ const Header = () => {
           </nav>
 
           {/* Scroll Hint - Desktop Only */}
-          {showScrollHint && (
+          {showScrollHint && !hideScrollHint && (
             <button 
               className={styles.scrollHint}
               onClick={handleScrollToNext}
@@ -111,7 +115,7 @@ const Header = () => {
         {isMobileMenuOpen && (
           <div className={styles.mobileNavContainer}>
             <nav className={styles.mobileNav}>
-              <a href="/docs" className={styles.mobileNavLink}>
+              <a href="https://docs.bond.credit" target="_blank" rel="noopener noreferrer" className={styles.mobileNavLink}>
                 Docs
               </a>
               <a href="/agents" className={styles.mobileNavLink}>
