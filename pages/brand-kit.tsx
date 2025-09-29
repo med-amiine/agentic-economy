@@ -1,12 +1,19 @@
 import React from 'react';
 import Image from 'next/image';
 import { Download } from 'lucide-react';
+import Header from '../src/components/Header';
+import Footer from '../src/components/Footer';
 
 const BrandKit = () => {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-primary-500 to-blue-400">
+    <div className="min-h-screen">
+      <div className="bg-white" style={{ position: 'relative', zIndex: 1000 }}>
+        <div style={{ backgroundColor: 'white', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}>
+          <Header hideScrollHint={true} />
+        </div>
+      </div>
       {/* Header Section */}
-      <div className="pt-20 pb-16 px-6">
+      <div className="pt-20 pb-16 px-6 bg-gradient-to-b from-primary-500 to-blue-400">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
             Brand Kit
@@ -22,7 +29,7 @@ const BrandKit = () => {
       </div>
 
       {/* Main Content */}
-      <div className="px-6 pb-20">
+      <div className="px-6 pb-20 bg-white">
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Left Card - Logos, Colors & Type */}
           <div className="bg-white rounded-2xl p-8 shadow-xl">
@@ -114,10 +121,13 @@ const BrandKit = () => {
             {/* Logo Display */}
             <div className="flex flex-col items-center justify-center h-64 bg-gradient-to-br from-primary-500/10 to-blue-400/10 rounded-xl">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-16 h-16 bg-primary-500 rounded-xl flex items-center justify-center">
-                  <span className="text-white font-bold text-xl">B</span>
-                </div>
-                <div className="text-3xl font-bold text-primary-500">bond.credit</div>
+                <Image
+                  src="/bond-credit-logo.png"
+                  alt="Bond Credit Logo"
+                  width={120}
+                  height={60}
+                  className="object-contain"
+                />
               </div>
               <div className="text-sm text-neutral-600 text-center">
                 Primary Logo - Use on light backgrounds
@@ -127,10 +137,13 @@ const BrandKit = () => {
             {/* Alternative Logo */}
             <div className="mt-6 flex flex-col items-center justify-center h-32 bg-neutral-900 rounded-xl">
               <div className="flex items-center gap-4">
-                <div className="w-12 h-12 bg-white rounded-lg flex items-center justify-center">
-                  <span className="text-primary-500 font-bold text-lg">B</span>
-                </div>
-                <div className="text-xl font-bold text-white">bond.credit</div>
+                <Image
+                  src="/bondcredit-logo-w.png"
+                  alt="Bond Credit Logo White"
+                  width={100}
+                  height={50}
+                  className="object-contain"
+                />
               </div>
               <div className="text-sm text-neutral-400 text-center mt-2">
                 Alternative Logo - Use on dark backgrounds
@@ -139,6 +152,7 @@ const BrandKit = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
