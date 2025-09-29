@@ -11,6 +11,36 @@ A modern, optimized Next.js website for Bond Credit's agentic banking platform.
 - 🔧 **TypeScript** for type safety
 - 🎯 **SEO Optimized** with proper meta tags
 
+## Newsletter Integration
+
+The newsletter subscription is currently set up with a fallback system. To enable full Mailchimp integration:
+
+### Current Status
+- ✅ Newsletter form is working
+- ✅ Email validation is active
+- ⚠️ Currently using simulation mode (emails are logged but not sent to Mailchimp)
+
+### To Enable Mailchimp Integration
+
+1. **Get Mailchimp Credentials:**
+   - Go to [Mailchimp API Keys](https://us1.admin.mailchimp.com/account/api/)
+   - Create a new API key
+   - Copy the API key (ends with something like `-us21`)
+   - Go to [Mailchimp Lists](https://us1.admin.mailchimp.com/lists/)
+   - Select your list and copy the List ID
+
+2. **Update the API:**
+   - Open `pages/api/newsletter.ts`
+   - Uncomment the Mailchimp integration code (lines 35-70)
+   - Replace `your_api_key_here` with your actual API key
+   - Replace `your_list_id_here` with your actual List ID
+   - Comment out the simulation code (lines 21-33)
+
+3. **Test the Integration:**
+   - Restart the development server
+   - Test the newsletter form
+   - Check Mailchimp dashboard for new subscribers
+
 ## Getting Started
 
 First, install the dependencies:
