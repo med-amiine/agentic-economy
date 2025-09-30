@@ -9,7 +9,7 @@ const BrandKit = () => {
     <div className="min-h-screen">
       <div className="bg-white" style={{ position: 'relative', zIndex: 1000 }}>
         <div style={{ backgroundColor: 'white', position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50 }}>
-          <Header hideScrollHint={true} />
+          <Header hideScrollHint={true} showNavigation={false} />
         </div>
       </div>
       {/* Header Section */}
@@ -119,13 +119,13 @@ const BrandKit = () => {
             </div>
 
             {/* Logo Display */}
-            <div className="flex flex-col items-center justify-center h-64 bg-gradient-to-br from-primary-500/10 to-blue-400/10 rounded-xl">
+            <div className="flex flex-col items-center justify-center h-80 bg-gradient-to-br from-primary-500/10 to-blue-400/10 rounded-xl">
               <div className="flex items-center gap-4 mb-4">
                 <Image
                   src="/bond-credit-logo.png"
                   alt="Bond Credit Logo"
-                  width={120}
-                  height={60}
+                  width={200}
+                  height={100}
                   className="object-contain"
                 />
               </div>
@@ -135,13 +135,13 @@ const BrandKit = () => {
             </div>
 
             {/* Alternative Logo */}
-            <div className="mt-6 flex flex-col items-center justify-center h-32 bg-neutral-900 rounded-xl">
+            <div className="mt-6 flex flex-col items-center justify-center h-80 bg-neutral-900 rounded-xl">
               <div className="flex items-center gap-4">
                 <Image
                   src="/bondcredit-logo-w.png"
                   alt="Bond Credit Logo White"
-                  width={100}
-                  height={50}
+                  width={200}
+                  height={100}
                   className="object-contain"
                 />
               </div>

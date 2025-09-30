@@ -60,7 +60,7 @@ const StackDiagram = () => {
   ];
 
   return (
-    <section className="py-14 bg-white relative overflow-hidden">
+    <section id="challenge" className="py-14 bg-white relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/3 right-1/4 w-72 h-72 bg-primary-500/3 rounded-full blur-3xl"></div>

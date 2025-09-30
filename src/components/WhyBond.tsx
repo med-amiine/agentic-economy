@@ -4,7 +4,7 @@ import styles from './WhyBond.module.css';
 
 const WhyBond = () => {
   return (
-    <section className={styles.whyBondSection}>
+    <section id="features" className={styles.whyBondSection}>
       {/* Background Elements */}
       <div className={styles.backgroundElements}>
         <div className={styles.backgroundBlur1}></div>
