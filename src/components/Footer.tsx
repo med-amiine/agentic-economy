@@ -30,7 +30,7 @@ const Footer = () => {
             {/* Social Media Links */}
             <div className="flex items-center space-x-4 pt-2">
               <a 
-                href="https://twitter.com/bondcredit" 
+                href="https://x.com/bondoncredit" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-white transition-colors duration-300"
@@ -63,7 +63,7 @@ const Footer = () => {
                 </svg>
               </a>
               <a 
-                href="https://linkedin.com/company/bondcredit" 
+                href="https://www.linkedin.com/company/bond-credit/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="text-white/60 hover:text-white transition-colors duration-300"
@@ -85,15 +85,24 @@ const Footer = () => {
                 <div className="w-8 h-0.5 bg-blue-400 mb-4"></div>
               </div>
               <div className="space-y-3">
-                {['Home', 'Challenge', 'Features'].map((link) => (
-                  <a 
-                    key={link}
-                    href={`/${link.toLowerCase()}`} 
-                    className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
-                  >
-                    {link}
-                  </a>
-                ))}
+                <a 
+                  href="#hero" 
+                  className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
+                >
+                  Home
+                </a>
+                <a 
+                  href="#features" 
+                  className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
+                >
+                  Features
+                </a>
+                <a 
+                  href="#challenge" 
+                  className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
+                >
+                  Blog
+                </a>
               </div>
           </div>
 
@@ -136,15 +145,26 @@ const Footer = () => {
                 <div className="w-8 h-0.5 bg-blue-400 mb-4"></div>
               </div>
               <div className="space-y-3">
-                {['About', 'Careers', 'Contact'].map((link) => (
-                  <a 
-                    key={link}
-                    href={`/${link.toLowerCase()}`} 
-                    className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
-                  >
-                    {link}
-                  </a>
-                ))}
+                <a 
+                  href="#faq" 
+                  className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
+                >
+                  About
+                </a>
+                <a 
+                  href="https://www.notion.so/Join-bond-credit-team-27e827bcb243800a9d64ef3c4cdcb742?source=copy_link" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
+                >
+                  Careers
+                </a>
+                <a 
+                  href="mailto:team@bond.credit" 
+                  className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
+                >
+                  Contact
+                </a>
               </div>
             </div>
           </div>
