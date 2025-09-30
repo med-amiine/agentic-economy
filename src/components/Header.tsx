@@ -2,17 +2,20 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import Image from 'next/image';
 import styles from './Header.module.css';
+import ComingSoonModal from './ComingSoonModal';
 
 interface HeaderProps {
   hideScrollHint?: boolean;
+  showNavigation?: boolean;
 }
 
-const Header = ({ hideScrollHint = false }: HeaderProps) => {
+const Header = ({ hideScrollHint = false, showNavigation = true }: HeaderProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollHint, setShowScrollHint] = useState(true);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
+  const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false);
 
   const handleScrollToNext = () => {
     // Find the next section after the hero section
@@ -70,20 +73,16 @@ const Header = ({ hideScrollHint = false }: HeaderProps) => {
           </div>
 
           {/* Desktop Navigation */}
-          <nav className={styles.desktopNav}>
-            <a href="https://docs.bond.credit" target="_blank" rel="noopener noreferrer" className={styles.navLink}>
-              Docs
-            </a>
-            <a href="/agents" className={styles.navLink}>
-              Agents
-            </a>
-            <a href="/whitepaper" className={styles.navLink}>
-              Whitepaper
-            </a>
-            <a href="/app" className={styles.primaryButton}>
-              Enter App
-            </a>
-          </nav>
+          {showNavigation && (
+            <nav className={styles.desktopNav}>
+              <button 
+                onClick={() => setIsComingSoonModalOpen(true)}
+                className={styles.primaryButton}
+              >
+                Enter App
+              </button>
+            </nav>
+          )}
 
           {/* Scroll Hint - Desktop Only */}
           {showScrollHint && !hideScrollHint && (
@@ -112,25 +111,27 @@ const Header = ({ hideScrollHint = false }: HeaderProps) => {
         </div>
 
         {/* Mobile Navigation */}
-        {isMobileMenuOpen && (
+        {isMobileMenuOpen && showNavigation && (
           <div className={styles.mobileNavContainer}>
             <nav className={styles.mobileNav}>
-              <a href="https://docs.bond.credit" target="_blank" rel="noopener noreferrer" className={styles.mobileNavLink}>
-                Docs
-              </a>
-              <a href="/agents" className={styles.mobileNavLink}>
-                Agents
-              </a>
-              <a href="/whitepaper" className={styles.mobileNavLink}>
-                Whitepaper
-              </a>
-              <a href="/app" className={styles.mobilePrimaryButton}>
+              <button 
+                onClick={() => setIsComingSoonModalOpen(true)}
+                className={styles.mobilePrimaryButton}
+              >
                 Enter App
-              </a>
+              </button>
             </nav>
           </div>
         )}
       </div>
+
+      {/* Coming Soon Modal */}
+      <ComingSoonModal
+        isOpen={isComingSoonModalOpen}
+        onClose={() => setIsComingSoonModalOpen(false)}
+        title="App Coming Soon"
+        description="We're working hard to bring you an amazing experience. The app will be available soon with all the features you need for agentic banking."
+      />
     </header>
   );
 };

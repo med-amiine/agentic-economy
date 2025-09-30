@@ -64,8 +64,8 @@
 .logoLink {
   display: flex;
   align-items: center;
-  width: 140px;
-  height: 60px;
+  width: 180px;
+  height: 80px;
   background-image: url('/bond-credit-logo.png');
   background-size: contain;
   background-repeat: no-repeat;
@@ -110,7 +110,7 @@
   align-items: center;
   gap: 32px; /* 2rem -> 32px */
   flex: 1;
-  justify-content: center;
+  justify-content: flex-end;
 }
 
 @media (min-width: 768px) { /* md breakpoint */
@@ -144,6 +144,7 @@
 
 .primaryButton:hover {
   background-color: #1e40ff; /* primary-600 */
+  color: white !important;
 }
 
 /* Mobile Menu Button */
@@ -294,6 +295,12 @@
   margin-left: 16px; /* 1rem -> 16px */
   margin-right: 16px; /* 1rem -> 16px */
   text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.mobilePrimaryButton:hover {
+  background-color: #1e40ff; /* primary-600 */
+  color: white !important;
 }
 
 /* Animations */
