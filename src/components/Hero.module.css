@@ -322,6 +322,7 @@
 
 .primaryButton:hover {
   background: #1e40ff;
+  color: white !important;
   box-shadow: 0 25px 50px -12px rgba(44, 91, 255, 0.25);
   transform: translateY(-4px);
 }

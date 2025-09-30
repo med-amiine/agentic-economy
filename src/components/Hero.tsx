@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Plus, Play } from 'lucide-react';
 import Image from 'next/image';
 import styles from './Hero.module.css';
+import ComingSoonModal from './ComingSoonModal';
 
 const Hero = () => {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
@@ -11,6 +12,7 @@ const Hero = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [loadingPercentage, setLoadingPercentage] = useState(87);
   const [showLoadingText, setShowLoadingText] = useState(false);
+  const [isComingSoonModalOpen, setIsComingSoonModalOpen] = useState(false);
   
   const baseText = 'THE AGENTIC ';
   const rollingWords = ['PROTOCOL', 'ENGINE', 'NETWORK', 'TRUST', 'LAYER', 'ECONOMY'];
@@ -72,6 +74,7 @@ const Hero = () => {
 
   return (
         <section 
+          id="hero"
           className={styles.heroSection}
           style={{
             backgroundImage: "url('/agentic-bg.png')",
@@ -190,15 +193,18 @@ const Hero = () => {
 
             {/* CTAs */}
             <div className={styles.ctaSection}>
-              <a href="/app" className={styles.primaryButton}>
+              <button 
+                onClick={() => setIsComingSoonModalOpen(true)}
+                className={styles.primaryButton}
+              >
                 <div className={styles.primaryButtonGradient}></div>
                 <span className={styles.primaryButtonContent}>
                   Enter App
                   <Plus className={styles.primaryButtonIcon} />
                 </span>
-              </a>
+              </button>
               <button 
-                onClick={() => setIsModalOpen(true)} 
+                onClick={() => setIsComingSoonModalOpen(true)} 
                 className={styles.secondaryButton}
               >
                 <Play className={styles.secondaryButtonIcon} />
@@ -261,6 +267,14 @@ const Hero = () => {
               </div>
             </div>
           )}
+
+          {/* Coming Soon Modal */}
+          <ComingSoonModal
+            isOpen={isComingSoonModalOpen}
+            onClose={() => setIsComingSoonModalOpen(false)}
+            title="Demo Coming Soon"
+            description="We're preparing an amazing demo that will showcase all the features of our agentic banking platform. Stay tuned!"
+          />
         </section>
   );
 };
