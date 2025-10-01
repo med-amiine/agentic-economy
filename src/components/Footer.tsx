@@ -98,10 +98,10 @@ const Footer = () => {
                   Features
                 </a>
                 <a 
-                  href="#challenge" 
+                  href="#team" 
                   className="block text-sm text-white hover:text-blue-400 transition-colors duration-300"
                 >
-                  Blog
+                  Team
                 </a>
               </div>
           </div>

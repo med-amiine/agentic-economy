@@ -73,7 +73,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <section className="py-14 bg-gradient-to-b from-white to-neutral-50/50 relative overflow-hidden">
+    <section id="team" className="py-14 bg-gradient-to-b from-white to-neutral-50/50 relative overflow-hidden">
       {/* Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-1/4 left-1/3 w-96 h-96 bg-primary-500/3 rounded-full blur-3xl"></div>
@@ -115,7 +115,7 @@ const HowItWorks = () => {
                 
                 {/* TrueFi and DappRadar under Co-Founder & CEO */}
                 {member.role === "Co-Founder & CEO" && (
-                  <div className="mt-4 flex gap-2">
+                  <div className="mt-4 flex gap-2 justify-center">
                     <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
                       <span className="text-neutral-600 text-xs font-medium">TrueFi</span>
                     </div>
@@ -127,7 +127,7 @@ const HowItWorks = () => {
                 
                 {/* Polygon, Mode Network, and Sage under Co-Founder & CTO */}
                 {member.role === "Co-Founder & CTO" && (
-                  <div className="mt-4 flex gap-2">
+                  <div className="mt-4 flex gap-2 justify-center">
                     <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
                       <span className="text-neutral-600 text-xs font-medium">Polygon</span>
                     </div>
@@ -142,7 +142,7 @@ const HowItWorks = () => {
                 
                 {/* ABN, AMRO, and WTO under Head of Risk */}
                 {member.role === "Co-Founder & COO" && (
-                  <div className="mt-4 flex gap-2">
+                  <div className="mt-4 flex gap-2 justify-center">
                     <div className="bg-white/60 backdrop-blur-sm border border-neutral-200/50 rounded-lg px-3 py-1">
                       <span className="text-neutral-600 text-xs font-medium">ABN AMRO</span>
                     </div>
